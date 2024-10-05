@@ -1,16 +1,11 @@
 # pwa_converter
 
-A new Flutter project.
+Test task pwa converter
 
-## Getting Started
+## How to Run the Application in a Browser Simulator
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To run the application on a web simulator, follow these steps: 
+1. Open Terminal. 2. Navigate to the Project Directory: ```bash cd <path_to_your_project>/pwa_converter ```  
+2. Get the Necessary Packages: ```bash flutter pub get ```  
+3. Run the Application: ```bash flutter run -d chrome --web-hostname 0.0.0.0 --web-port 5000 ```  
+4. Open Your Web Browser and Go to: `http://<your_ip_address>:5000`, replacing `<your_ip_address>` with your local machine's IP address (you can find this using `ifconfig` for macOS/Linux or `ipconfig` for Windows).
