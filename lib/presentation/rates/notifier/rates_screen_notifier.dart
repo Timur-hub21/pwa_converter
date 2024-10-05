@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:pwa_converter/data/models/currency_data.dart';
 import 'package:pwa_converter/domain/usecase/rates_usecase.dart';

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pwa_converter/presentation/main_screen/main_screen.dart';
@@ -54,9 +56,10 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 40,
               width: double.infinity,
               child: TextFormField(
+                autofocus: true,
                 controller: loginController,
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 10),
+                  contentPadding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(4.0),
                     borderSide: const BorderSide(color: Colors.grey),
@@ -83,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: TextFormField(
                 controller: passwordController,
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 10),
+                  contentPadding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(4.0),
                     borderSide: const BorderSide(color: Colors.grey),

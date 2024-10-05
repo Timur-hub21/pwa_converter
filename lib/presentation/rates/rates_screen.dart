@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pwa_converter/data/models/currency_data.dart';
+import 'package:pwa_converter/presentation/login/login_screen.dart';
 import 'package:pwa_converter/presentation/rates/notifier/rates_screen_notifier.dart';
 import 'package:pwa_converter/presentation/rates/notifier/rates_screen_state_notifier.dart';
 import 'package:pwa_converter/presentation/rates/widgets/currency_tile.dart';
@@ -20,6 +21,15 @@ class _RatesScreenState extends State<RatesScreen> {
   void initState() {
     ratesScreenNotifier.getCurrencyData();
     super.initState();
+  }
+
+  void logout() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => const LoginScreen(),
+      ),
+    );
   }
 
   @override
@@ -46,7 +56,7 @@ class _RatesScreenState extends State<RatesScreen> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () => logout(),
                 icon: const Icon(
                   Icons.logout,
                   color: Colors.black,
@@ -59,7 +69,21 @@ class _RatesScreenState extends State<RatesScreen> {
             switch (value.isLoading) {
               case true:
                 return const Center(
-                  child: CircularProgressIndicator(),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      CircularProgressIndicator(),
+                      SizedBox(height: 16),
+                      Text(
+                        'Rates loading...',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      )
+                    ],
+                  ),
                 );
 
               case false:
