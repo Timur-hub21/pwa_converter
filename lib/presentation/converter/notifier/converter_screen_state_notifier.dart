@@ -1,9 +1,9 @@
-import 'package:pwa_converter/data/models/currency_data.dart';
+import 'package:pwa_converter/data/models/json_serializable_currency_data.dart';
 
 final class ConverterScreenStateNotifier {
-  final List<Currency> currencies;
-  final Currency? selectedFrom;
-  final Currency? selectedTo;
+  final List<JsonSerializableCurrency> currencies;
+  final JsonSerializableCurrency? selectedFrom;
+  final JsonSerializableCurrency? selectedTo;
   final double? selectedAmount;
   final double? convertResult;
   final double? resultWithPercent;
@@ -31,9 +31,9 @@ final class ConverterScreenStateNotifier {
       );
 
   ConverterScreenStateNotifier copyWith({
-    List<Currency>? currencies,
-    Currency? selectedFrom,
-    Currency? selectedTo,
+    List<JsonSerializableCurrency>? currencies,
+    JsonSerializableCurrency? selectedFrom,
+    JsonSerializableCurrency? selectedTo,
     double? selectedAmount,
     double? convertResult,
     double? resultWithPercent,

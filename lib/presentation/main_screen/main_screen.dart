@@ -11,7 +11,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentScreen = 1;
+  int currentScreen = 0;
 
   final List<Widget> screens = const <Widget>[
     RatesScreen(),

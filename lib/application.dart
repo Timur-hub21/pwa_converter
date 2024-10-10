@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pwa_converter/presentation/login/login_screen.dart';
+import 'package:pwa_converter/presentation/main_screen/main_screen.dart';
 
 class Application extends StatelessWidget {
   const Application({super.key});
@@ -9,7 +9,7 @@ class Application extends StatelessWidget {
     return const MaterialApp(
       title: 'PWA Converter',
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: MainScreen(),
     );
   }
 }

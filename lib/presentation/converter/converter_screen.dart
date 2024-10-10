@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pwa_converter/data/models/currency_data.dart';
+import 'package:pwa_converter/data/models/json_serializable_currency_data.dart';
 import 'package:pwa_converter/presentation/converter/notifier/converter_screen_notifier.dart';
 import 'package:pwa_converter/presentation/converter/notifier/converter_screen_state_notifier.dart';
 import 'package:pwa_converter/presentation/converter/widgets/custom_currency_picker.dart';
@@ -97,7 +97,8 @@ class _ConverterScreenState extends State<ConverterScreen> {
                           builder: (BuildContext context) {
                             return CustomCurrencyPicker(
                               currencies: value.currencies,
-                              onConfirmTap: (Currency selectedCurrency) {
+                              onConfirmTap:
+                                  (JsonSerializableCurrency selectedCurrency) {
                                 converterScreenNotifier.selectFromCurrency(
                                   selectedCurrency,
                                 );
@@ -130,7 +131,8 @@ class _ConverterScreenState extends State<ConverterScreen> {
                           builder: (BuildContext context) {
                             return CustomCurrencyPicker(
                               currencies: value.currencies,
-                              onConfirmTap: (Currency selectedCurrency) {
+                              onConfirmTap:
+                                  (JsonSerializableCurrency selectedCurrency) {
                                 converterScreenNotifier.selectToCurrency(
                                   selectedCurrency,
                                 );

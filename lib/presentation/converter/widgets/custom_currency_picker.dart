@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pwa_converter/data/models/currency_data.dart';
+import 'package:pwa_converter/data/models/json_serializable_currency_data.dart';
 
 class CustomCurrencyPicker extends StatefulWidget {
-  final List<Currency> currencies;
-  final void Function(Currency selectedCurrency) onConfirmTap;
+  final List<JsonSerializableCurrency> currencies;
+  final void Function(JsonSerializableCurrency selectedCurrency) onConfirmTap;
 
   const CustomCurrencyPicker({
     super.key,
@@ -78,7 +78,8 @@ class _CustomCurrencyPickerState extends State<CustomCurrencyPicker> {
                     return null;
                   }
 
-                  final Currency currency = widget.currencies[index];
+                  final JsonSerializableCurrency currency =
+                      widget.currencies[index];
                   final bool isSelected = index == selectedIndex;
 
                   return Center(

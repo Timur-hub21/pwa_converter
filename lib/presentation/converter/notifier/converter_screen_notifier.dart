@@ -1,7 +1,6 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:pwa_converter/data/models/currency_data.dart';
+import 'package:pwa_converter/data/models/json_serializable_currency_data.dart';
 import 'package:pwa_converter/domain/usecase/rates_usecase.dart';
 import 'package:pwa_converter/presentation/converter/notifier/converter_screen_state_notifier.dart';
 
@@ -15,7 +14,8 @@ class ConverterScreenNotifier
 
   Future<void> getCurrencyData() async {
     try {
-      final CurrencyData currencyData = await _ratesUsecase.getCurrencyData();
+      final JsonSerializableCurrencyData currencyData =
+          await _ratesUsecase.getCurrencyData();
 
       value = value.copyWith(currencies: currencyData.currencies);
     } catch (error) {
@@ -23,7 +23,7 @@ class ConverterScreenNotifier
     }
   }
 
-  void selectFromCurrency(Currency selectedCurrency) {
+  void selectFromCurrency(JsonSerializableCurrency selectedCurrency) {
     if (selectedCurrency == value.selectedTo) {
       value = value.copyWith(selectedTo: null);
     }
@@ -31,7 +31,7 @@ class ConverterScreenNotifier
     _updateButtonVisibility();
   }
 
-  void selectToCurrency(Currency selectedCurrency) {
+  void selectToCurrency(JsonSerializableCurrency selectedCurrency) {
     if (selectedCurrency != value.selectedFrom) {
       value = value.copyWith(selectedTo: selectedCurrency);
     }

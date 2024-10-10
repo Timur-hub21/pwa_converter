@@ -1,8 +1,8 @@
-import 'package:pwa_converter/data/models/currency_data.dart';
+import 'package:pwa_converter/data/models/json_serializable_currency_data.dart';
 import 'package:pwa_converter/domain/repository/rates_repository.dart';
 
 abstract interface class RatesUsecase {
-  Future<CurrencyData> getCurrencyData();
+  Future<JsonSerializableCurrencyData> getCurrencyData();
 }
 
 class RatesUsecaseImpl implements RatesUsecase {
@@ -11,7 +11,7 @@ class RatesUsecaseImpl implements RatesUsecase {
   RatesUsecaseImpl(this._ratesRepository);
 
   @override
-  Future<CurrencyData> getCurrencyData() async {
+  Future<JsonSerializableCurrencyData> getCurrencyData() async {
     return _ratesRepository.getCurrencyData();
   }
 }

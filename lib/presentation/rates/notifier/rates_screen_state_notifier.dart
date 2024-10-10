@@ -1,7 +1,7 @@
-import 'package:pwa_converter/data/models/currency_data.dart';
+import 'package:pwa_converter/data/models/json_serializable_currency_data.dart';
 
 final class RatesScreenStateNotifier {
-  final List<Currency> currencies;
+  final List<JsonSerializableCurrency> currencies;
   final bool isLoading;
 
   RatesScreenStateNotifier({
@@ -15,7 +15,7 @@ final class RatesScreenStateNotifier {
       );
 
   RatesScreenStateNotifier copyWith({
-    List<Currency>? currencies,
+    List<JsonSerializableCurrency>? currencies,
     bool? isLoading,
   }) {
     return RatesScreenStateNotifier(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pwa_converter/data/models/currency_data.dart';
+import 'package:pwa_converter/data/models/json_serializable_currency_data.dart';
 import 'package:pwa_converter/presentation/login/login_screen.dart';
 import 'package:pwa_converter/presentation/rates/notifier/rates_screen_notifier.dart';
 import 'package:pwa_converter/presentation/rates/notifier/rates_screen_state_notifier.dart';
@@ -103,7 +103,8 @@ class _RatesScreenState extends State<RatesScreen> {
                         vertical: 16,
                       ),
                       itemBuilder: (BuildContext context, int index) {
-                        final Currency currency = value.currencies[index];
+                        final JsonSerializableCurrency currency =
+                            value.currencies[index];
 
                         return CurrencyTile(
                           currencyTitle: currency.symbol,

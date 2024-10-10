@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:pwa_converter/data/models/currency_data.dart';
+import 'package:pwa_converter/data/models/json_serializable_currency_data.dart';
 import 'package:pwa_converter/domain/usecase/rates_usecase.dart';
 import 'package:pwa_converter/presentation/rates/notifier/rates_screen_state_notifier.dart';
 
@@ -24,7 +24,8 @@ class RatesScreenNotifier extends ValueNotifier<RatesScreenStateNotifier> {
     value = value.copyWith(isLoading: true);
 
     try {
-      final CurrencyData currencyData = await _ratesUsecase.getCurrencyData();
+      final JsonSerializableCurrencyData currencyData =
+          await _ratesUsecase.getCurrencyData();
 
       value = value.copyWith(
         currencies: currencyData.currencies,
@@ -39,13 +40,12 @@ class RatesScreenNotifier extends ValueNotifier<RatesScreenStateNotifier> {
 
   Future<void> getCurrencyDataWithoutLoading() async {
     try {
-      final CurrencyData currencyData = await _ratesUsecase.getCurrencyData();
+      final JsonSerializableCurrencyData currencyData =
+          await _ratesUsecase.getCurrencyData();
 
       value = value.copyWith(
         currencies: currencyData.currencies,
       );
-
-      log(value.currencies.length.toString());
     } catch (error) {
       log('Unable to get currency data: $error');
     }

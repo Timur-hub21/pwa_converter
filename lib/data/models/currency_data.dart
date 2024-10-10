@@ -10,6 +10,12 @@ final class CurrencyData {
           .toList(),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'data': currencies.map((currency) => currency.toJson()).toList(),
+    };
+  }
 }
 
 final class Currency {
@@ -35,5 +41,15 @@ final class Currency {
       type: json['type'],
       rateUsd: json['rateUsd'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'symbol': symbol,
+      'currencySymbol': currencySymbol,
+      'type': type,
+      'rateUsd': rateUsd,
+    };
   }
 }
